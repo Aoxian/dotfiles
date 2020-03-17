@@ -1,7 +1,17 @@
+# shell
+alias vim='nvim'
 alias ll='ls -lGa'
-alias gl='git log --all --decorate --oneline --graph'
+
+# git
+alias gl='clear && git log --all --decorate --oneline --graph'
 alias ga='git add .'
 alias gc='git commit'
+alias gs='clear && git status'
+
+# elixir
+alias emt='clear && mix test'
+alias eet='cd assets/elm && elm-test && cd ../..'
+
 eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
