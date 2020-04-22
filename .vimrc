@@ -60,15 +60,21 @@ Plugin 'w0rp/ale'                                  " Linting engine
 Plugin 'pangloss/vim-javascript'                   " Javascript
 Plugin 'othree/yajs.vim'                           " javascript syntax
 Plugin 'mxw/vim-jsx'                               " JSX highlighting
+Plugin 'vim-airline/vim-airline'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'Shougo/vimproc'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-
-filetype plugin indent on
 au FileType json setl sw=2 sts=2 et                " Indentation for json
+
+" More Haskell stuff
+let g:airline#extensions#ale#enabled = 1
+nnoremap <Leader>ht :GhcModType<cr>
+nnoremap <Leader>htc :GhcModTypeClear<cr>
+autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
 
 " ================================================ ale lint ==========================================
 let g:ale_linters = {
