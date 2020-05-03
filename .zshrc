@@ -1,4 +1,5 @@
 # shell
+alias vi='nvim'
 alias vim='nvim'
 alias ll='ls -lGa'
 
@@ -11,7 +12,6 @@ alias gs='clear && git status'
 # elixir
 alias emt='clear && mix test'
 alias eet='cd assets/elm && elm-test && cd ../..'
-
 
 # ruby
 eval "$(rbenv init -)"
