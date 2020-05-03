@@ -11,7 +11,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" The NERDTree 
+" The NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
