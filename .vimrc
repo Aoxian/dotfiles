@@ -64,6 +64,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc'
 Plugin 'rust-lang/rust.vim'                        " Rust plugin
+Plugin 'preservim/nerdtree'                        " The NERDTree
 
 
 " All of your Plugins must be added before the following line
