@@ -63,6 +63,7 @@ Plugin 'mxw/vim-jsx'                               " JSX highlighting
 Plugin 'vim-airline/vim-airline'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc'
+Plugin 'rust-lang/rust.vim'                        " Rust plugin
 
 
 " All of your Plugins must be added before the following line
