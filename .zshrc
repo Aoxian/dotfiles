@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/iangagorik/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,8 +99,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # shell
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 alias ll='ls -lGa'
+
+# jsc (mac only)
+alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Helpers/jsc
 
 # git
 alias gl='clear && git log --all --decorate --oneline --graph'
@@ -112,16 +116,44 @@ alias gs='clear && git status'
 alias emt='clear && mix test'
 alias eet='cd assets/elm && elm-test && cd ../..'
 
+# fix Vips
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export DISABLE_SPRING=true
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# Groupon
+alias prod='ssh -t accounting@accounting-utility1-ro.snc1 screen -xR c_igagorik'
+alias prod_bb='ssh -t jboss@accounting-worker1.snc1 screen -xR c_igagorik'
+alias prod_rw='ssh -t accounting@accounting-utility12.snc1 screen -xR c_igagorik'
+alias staging='ssh -t accounting@accounting-utility1-staging.snc1 screen -xR c_igagorik'
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
 # ruby
 eval "$(rbenv init -)"
-export RUBYOPT='-W:no-deprecated -W:no-experimental'  # disable deprecation and experimental feature warnings
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # added by ghcup
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
+# Added by NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# GVM
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# Postgres.app
+export PATH="/Applications/Postgres.app/Contents/Versions/13/bin/:$PATH"
+
+# MySql ?
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# Rust
+export PATH="$HOME/.cargo/bin:/opt/homebrew/bin:$HOME/.sdkman/candidates/maven/current/bin:$HOME/.sdkman/candidates/leiningen/current/bin:$HOME/.sdkman/candidates/java/current/bin:$HOME/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/iangagorik/.sdkman"
-[[ -s "/Users/iangagorik/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/iangagorik/.sdkman/bin/sdkman-init.sh"
-export PATH=/Users/iangagorik/.cargo/bin:/opt/homebrew/bin:/Users/iangagorik/.sdkman/candidates/maven/current/bin:/Users/iangagorik/.sdkman/candidates/leiningen/current/bin:/Users/iangagorik/.sdkman/candidates/java/current/bin:/Users/iangagorik/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
