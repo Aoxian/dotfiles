@@ -41,6 +41,10 @@ set mouse=a			" can scroll with mouse
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Search with ag in VIM
+let g:ackprg = 'ag --vimgrep'
+cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == "ag" ? "Ack" : "ag"
+
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -65,7 +69,9 @@ Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc'
 Plugin 'rust-lang/rust.vim'                        " Rust plugin
 Plugin 'preservim/nerdtree'                        " The NERDTree
-
+Plugin 'tomlion/vim-solidity'                      " Solidity syntax
+Plugin 'leafgarland/typescript-vim'                " Typescript syntax
+Plugin 'mileszs/ack.vim'                           " ack.vim (brew install ack the_silver_searcher)
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
