@@ -37,6 +37,11 @@ set scrolloff=4			" scroll offset
 set backspace=indent,eol,start	" can backspace in insert mode
 set mouse=a			" can scroll with mouse
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -72,6 +77,7 @@ Plugin 'preservim/nerdtree'                        " The NERDTree
 Plugin 'tomlion/vim-solidity'                      " Solidity syntax
 Plugin 'leafgarland/typescript-vim'                " Typescript syntax
 Plugin 'mileszs/ack.vim'                           " ack.vim (brew install ack the_silver_searcher)
+Plugin 'tmhedberg/SimpylFold'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
