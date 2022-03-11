@@ -61,6 +61,7 @@ Plugin 'kien/rainbow_parentheses.vim'              " Parenthesis highlighting
 Plugin 'MarcWeber/vim-addon-mw-utils'              " Interprets file by extension
 Plugin 'tpope/vim-surround'                        " Better parenthesis support
 Plugin 'itchyny/lightline.vim'                     " Better status line
+Plugin 'git@github.com:itchyny/vim-gitbranch.git'  " show current git branch
 Plugin 'elmcast/elm-vim'                           " Elm plugin
 Plugin 'elixir-lang/vim-elixir'                    " Elixir plugin
 Plugin 'slashmili/alchemist.vim'                   " Elixir plugin for ElixirSense
@@ -69,7 +70,6 @@ Plugin 'w0rp/ale'                                  " Linting engine
 Plugin 'pangloss/vim-javascript'                   " Javascript
 Plugin 'othree/yajs.vim'                           " javascript syntax
 Plugin 'mxw/vim-jsx'                               " JSX highlighting
-Plugin 'vim-airline/vim-airline'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc'
 Plugin 'rust-lang/rust.vim'                        " Rust plugin
@@ -104,4 +104,16 @@ let g:ale_fixers = {
 \    'html': ['prettier']
 \}
 let g:ale_fix_on_save = 1
+
+" ========================================== lightline configuration =================================
+let g:lightline = {
+\   'colorscheme': 'wombat',
+\   'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'gitbranch': 'gitbranch#name'
+\ },
+\}
 
