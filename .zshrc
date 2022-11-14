@@ -153,7 +153,9 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # Rust
 export PATH="$HOME/.cargo/bin:/opt/homebrew/bin:$HOME/.sdkman/candidates/maven/current/bin:$HOME/.sdkman/candidates/leiningen/current/bin:$HOME/.sdkman/candidates/java/current/bin:$HOME/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
+## asdf > homebrew
+alias brew='env PATH="${PATH//.asdf/shims:/}" brew'
 
