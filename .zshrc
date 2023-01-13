@@ -156,6 +156,12 @@ export PATH="$HOME/.cargo/bin:/opt/homebrew/bin:$HOME/.sdkman/candidates/maven/c
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
+
 ## asdf > homebrew
 alias brew='env PATH="${PATH//.asdf/shims:/}" brew'
+
+# kubernetes
+# this solves an issue where Docker writes its version of kubernetes to the
+# $PATH and causes issues
+export PATH="/usr/local/Cellar/kubernetes-cli/1.26.0/bin:$PATH"
 
