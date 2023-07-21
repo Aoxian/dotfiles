@@ -20,3 +20,7 @@
 (setq history-length 25)
 (savehist-mode 1)                      ; Save minibuffer prompt history
 (save-place-mode 1)                    ; Remember and restore the last cursor location of opened files
+
+;; Move customization variable to a seperate file and load it
+(setq custom-file (locate-user-emacs-file "custom-vars.el"))
+(load custom-file 'noerror 'nomessage)
