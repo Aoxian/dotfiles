@@ -25,3 +25,7 @@
 ;; Move customization variable to a seperate file and load it
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
+
+;; Revert buffers when the underlying files or buffers have changed
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
