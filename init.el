@@ -14,3 +14,9 @@
 (load-theme 'modus-operandi t t)
 (load-theme 'modus-vivendi t t)
 (enable-theme 'modus-vivendi)
+
+;; History settings
+(recentf-mode 1)                       ; Remember recently edited files
+(setq history-length 25)
+(savehist-mode 1)                      ; Save minibuffer prompt history
+(save-place-mode 1)                    ; Remember and restore the last cursor location of opened files
