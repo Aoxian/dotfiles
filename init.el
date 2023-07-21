@@ -3,6 +3,7 @@
 (tool-bar-mode -1)                      ; Don't show the tool bar
 (scroll-bar-mode -1)                    ; Don't show the scroll bar
 (setq inhibit-startup-message t)        ; Don't show the splash screen
+(setq use-dialog-box nil)               ; Don't pop up UI dialogs when prompting
 
 ;; Turn on some useful UI elements
 (global-display-line-numbers-mode 1)   ; Display line numbers in every buffer
