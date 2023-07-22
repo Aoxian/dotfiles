@@ -9,9 +9,14 @@
 (global-display-line-numbers-mode 1)   ; Display line numbers in every buffer
 (hl-line-mode 1)                       ; Highlights the current line in a buffer
 
-;; Load the Modus Vivendi dark theme
+;; Theme using Modus
 (add-to-list 'load-path "~/.emacs.d/modus-themes")
 (require 'modus-themes)
+;; Mode line: subtle blue background, neutral foreground, invisible border
+(setq modus-themes-common-palette-overrides
+      '((bg-mode-line-active bg-blue-subtle)
+	(fg-mode-line-active fg-main)
+        (border-mode-line-active bg-blue-subtle)))
 (load-theme 'modus-operandi t t)
 (load-theme 'modus-vivendi t t)
 (enable-theme 'modus-vivendi)
