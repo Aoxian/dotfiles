@@ -16,7 +16,11 @@
 (setq modus-themes-common-palette-overrides
       '((bg-mode-line-active bg-blue-subtle)
 	(fg-mode-line-active fg-main)
-        (border-mode-line-active bg-blue-subtle)))
+        (border-mode-line-active bg-blue-subtle)
+;; Region selection
+        (bg-region bg-lavender)
+	(fg-region blue-cooler)))
+;; Load and Enable modus theme
 (load-theme 'modus-operandi t t)
 (load-theme 'modus-vivendi t t)
 (enable-theme 'modus-vivendi)
