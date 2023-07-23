@@ -9,13 +9,6 @@
 (global-display-line-numbers-mode 1)   ; Display line numbers in every buffer
 (hl-line-mode 1)                       ; Highlights the current line in a buffer
 
-;; Load the Modus Vivendi dark theme
-(add-to-list 'load-path "~/.emacs.d/modus-themes")
-(require 'modus-themes)
-(load-theme 'modus-operandi t t)
-(load-theme 'modus-vivendi t t)
-(enable-theme 'modus-vivendi)
-
 ;; History settings
 (recentf-mode 1)                       ; Remember recently edited files
 (setq history-length 25)
@@ -29,6 +22,21 @@
 ;; Revert buffers when the underlying files or buffers have changed
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
+
+;; Modus Theme config
+;;; For the built-in themes which cannot use 'require'.
+(require-theme 'modus-themes)
+
+;;; Theme Customizations
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs nil)
+
+;;; Load Light and Dark themes
+(load-theme 'modus-operandi)
+(load-theme 'modus-vivendi t)
+
+;;; define <F5> to toggle between light and dark themes
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
 ;; Keep files clean
 (setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
