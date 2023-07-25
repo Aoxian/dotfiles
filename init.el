@@ -40,12 +40,18 @@
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs t)
 
-;;;; Mode Line
+;;;; Palette Overrides
 (setq modus-themes-common-palette-overrides
+
+;;;;;; Mode Line
       '((bg-mode-line-active bg-blue-subtle)
 	(fg-mode-line-active fg-main)
 	(border-mode-line-active bg-mode-line-active)
-	(border-mode-line-inactive bg-mode-line-inactive)))
+	(border-mode-line-inactive bg-mode-line-inactive)
+
+;;;;;; Selection regions
+	(bg-region bg-dim)
+	(fg-region blue-cooler)))
 
 ;;; Load Light and Dark themes
 (load-theme 'modus-operandi :no-confirm)
