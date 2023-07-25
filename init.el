@@ -1,13 +1,17 @@
-;; Turn off some uneeded UI elements
+;; UI Settings
+
+;;;; Turn off some uneeded UI elements
 (menu-bar-mode -1)                      ; Don't show the menu bar
 (tool-bar-mode -1)                      ; Don't show the tool bar
 (scroll-bar-mode -1)                    ; Don't show the scroll bar
 (setq inhibit-startup-message t)        ; Don't show the splash screen
 (setq use-dialog-box nil)               ; Don't pop up UI dialogs when prompting
 
-;; Turn on some useful UI elements
+
+;;;; Turn on some useful UI elements
 (global-display-line-numbers-mode 1)   ; Display line numbers in every buffer
 (hl-line-mode 1)                       ; Highlights the current line in a buffer
+
 
 ;; History settings
 (recentf-mode 1)                       ; Remember recently edited files
@@ -15,28 +19,41 @@
 (savehist-mode 1)                      ; Save minibuffer prompt history
 (save-place-mode 1)                    ; Remember and restore the last cursor location of opened files
 
+
 ;; Move customization variable to a seperate file and load it
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
+
 
 ;; Revert buffers when the underlying files or buffers have changed
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 
+
 ;; Modus Theme config
-;;; For the built-in themes which cannot use 'require'.
-(require-theme 'modus-themes)
+
+;;; Use latest version of modus themes
+(add-to-list 'load-path "~/.emacs.d/modus-themes")
+(require 'modus-themes)
 
 ;;; Theme Customizations
 (setq modus-themes-italic-constructs t
-      modus-themes-bold-constructs nil)
+      modus-themes-bold-constructs t)
+
+;;;; Mode Line
+(setq modus-themes-common-palette-overrides
+      '((bg-mode-line-active bg-blue-subtle)
+	(fg-mode-line-active fg-main)
+	(border-mode-line-active bg-mode-line-active)
+	(border-mode-line-inactive bg-mode-line-inactive)))
 
 ;;; Load Light and Dark themes
-(load-theme 'modus-operandi)
-(load-theme 'modus-vivendi t)
+(load-theme 'modus-operandi :no-confirm)
+(load-theme 'modus-vivendi :no-confirm)
 
 ;;; define <F5> to toggle between light and dark themes
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+
 
 ;; Keep files clean
 (setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
