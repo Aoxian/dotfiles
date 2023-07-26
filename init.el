@@ -38,22 +38,23 @@
 
 ;;; Theme Customizations
 (setq modus-themes-italic-constructs t
-      modus-themes-bold-constructs t)
+      modus-themes-bold-constructs t
+      modus-themes-org-blocks 'gray-background)
 
 ;;;; Palette Overrides
 (setq modus-themes-common-palette-overrides
 
-;;;;;; Mode Line
+;;;;; Mode Line
       '((bg-mode-line-active bg-blue-subtle)
 	(fg-mode-line-active fg-main)
 	(border-mode-line-active bg-mode-line-active)
 	(border-mode-line-inactive bg-mode-line-inactive)
 
-;;;;;; Selection regions
+;;;;; Selection regions
 	(bg-region bg-dim)
 	(fg-region blue-cooler)
 
-;;;;;; Parentesis matching
+;;;;; Parentesis matching
 	(bg-paren-match blue-cooler)))
 
 ;;;; Headings
