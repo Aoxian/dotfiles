@@ -56,6 +56,13 @@
 ;;;;;; Parentesis matching
 	(bg-paren-match blue-cooler)))
 
+;;;; Headings
+(setq modus-themes-headings
+      '((1 . (rainbow 1.4))
+	(2 . (rainbow 1.3))
+	(3 . (rainbow bold 1.2))
+	(t . (semilight 1.1))))
+
 ;;; Load Light and Dark themes
 (load-theme 'modus-vivendi :no-confirm)
 
