@@ -33,7 +33,7 @@
 ;; Modus Theme config
 
 ;;; Use latest version of modus themes
-(add-to-list 'load-path "~/.emacs.d/modus-themes")
+(add-to-list 'load-path "~/.config/emacs/modus-themes")
 (require 'modus-themes)
 
 ;;; Theme Customizations
@@ -51,10 +51,12 @@
 
 ;;;;;; Selection regions
 	(bg-region bg-dim)
-	(fg-region blue-cooler)))
+	(fg-region blue-cooler)
+
+;;;;;; Parentesis matching
+	(bg-paren-match blue-cooler)))
 
 ;;; Load Light and Dark themes
-(load-theme 'modus-operandi :no-confirm)
 (load-theme 'modus-vivendi :no-confirm)
 
 ;;; define <F5> to toggle between light and dark themes
