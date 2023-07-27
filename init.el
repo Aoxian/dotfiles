@@ -11,7 +11,7 @@
 ;;;; Turn on some useful UI elements
 (global-display-line-numbers-mode 1)   ; Display line numbers in every buffer
 (hl-line-mode 1)                       ; Highlights the current line in a buffer
-
+(setq visible-bell t)                  ; Use a visual bell
 
 ;; History settings
 (recentf-mode 1)                       ; Remember recently edited files
