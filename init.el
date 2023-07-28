@@ -79,11 +79,20 @@
   :init
   (ivy-rich-mode 1))
 
-;;; Doom Modeline
+;;; Doom Modeline & Themes
+
+;;;; NOTE: the first time you load your configuration on a new machine, you'll
+;;;; need to run the following command interactively so that mode line icons
+;;;; display correctly:
+;;;;
+;;;; M-x all-the-icons-install-fonts
+(use-package all-the-icons)
+
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
+(use-package doom-themes)
 
 ;;; Rainbow delimiters
 (use-package rainbow-delimiters
@@ -143,10 +152,10 @@
 	(t . (semilight 1.1))))
 
 ;;; Load Light and Dark themes
-(load-theme 'modus-vivendi :no-confirm)
+(load-theme 'doom-palenight :no-confirm)
 
-;;; define <F5> to toggle between light and dark themes
-(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+;;; define <F5> to switch themes
+(define-key global-map (kbd "<f5>") #'counsel-load-theme)
 
 
 ;; Keep files clean
