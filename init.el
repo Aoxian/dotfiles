@@ -76,6 +76,9 @@
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
 
+;;; Rainbow delimiters
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 ;; Modus Theme config
 
