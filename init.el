@@ -70,6 +70,13 @@
   :config
   (ivy-mode 1))
 
+;;; Doom Modeline
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
+
 ;; Modus Theme config
 
 ;;; Use latest version of modus themes
