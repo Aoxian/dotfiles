@@ -69,7 +69,6 @@
 	 ("C-d" . ivy-reverse-i-search-kill))
   :config
   (ivy-mode 1))
-
 ;;; Doom Modeline
 (use-package doom-modeline
   :ensure t
@@ -79,6 +78,14 @@
 ;;; Rainbow delimiters
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
+
+;;; Use which-key
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.3))
+
 
 ;; Modus Theme config
 
