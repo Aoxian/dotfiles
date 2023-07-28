@@ -13,6 +13,7 @@
 (hl-line-mode 1)                       ; Highlights the current line in a buffer
 (setq visible-bell t)                  ; Use a visual bell
 
+
 ;; History settings
 (recentf-mode 1)                       ; Remember recently edited files
 (setq history-length 25)
@@ -29,6 +30,9 @@
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 
+
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Package Mgmt
 
