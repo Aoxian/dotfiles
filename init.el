@@ -1,14 +1,13 @@
 ;; UI Settings
 
-;;;; Turn off some uneeded UI elements
+;;; Turn off some uneeded UI elements
 (menu-bar-mode -1)                      ; Don't show the menu bar
 (tool-bar-mode -1)                      ; Don't show the tool bar
 (scroll-bar-mode -1)                    ; Don't show the scroll bar
 (setq inhibit-startup-message t)        ; Don't show the splash screen
 (setq use-dialog-box nil)               ; Don't pop up UI dialogs when prompting
 
-
-;;;; Turn on some useful UI elements
+;;; Turn on some useful UI elements
 (global-display-line-numbers-mode 1)   ; Display line numbers in every buffer
 (hl-line-mode 1)                       ; Highlights the current line in a buffer
 (setq visible-bell t)                  ; Use a visual bell
@@ -34,6 +33,7 @@
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+
 ;; Package Mgmt
 
 ;;; Initialize package sources
@@ -52,7 +52,6 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
-
 
 ;;; Use Ivy with counsel for completions
 (use-package ivy
@@ -80,6 +79,39 @@
   :init
   (ivy-rich-mode 1))
 
+;;; Rainbow delimiters
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+;;; Use which-key
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.3))
+
+;;; Helpful
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+
+;;; Spacebar toggles
+(use-package general
+  :config
+  (general-create-definer aoxian/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+  (aoxian/leader-keys
+   "t"  '(:ignore t :which-key "toggles")
+   "tt" '(counsel-load-theme :which-key "choose theme")))
+
 ;;; Extensible VI Layer
 (use-package evil
   :init
@@ -104,6 +136,17 @@
   :config
   (evil-collection-init))
 
+;;; Hydra
+(use-package hydra)
+
+(defhydra hydra-text-scale (:timeout 4)
+  "scale text"
+  ("j" text-scale-increase "in")
+  ("k" text-scale-decrease "out")
+  ("f" nil "finished" :exit t))
+
+(aoxian/leader-keys
+  "ts" '(hydra-text-scale/body :which-key "scale text"))
 
 ;;; Doom Modeline & Themes
 
@@ -119,28 +162,6 @@
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
 (use-package doom-themes)
-
-;;; Rainbow delimiters
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
-
-;;; Use which-key
-(use-package which-key
-  :init (which-key-mode)
-  :diminish which-key-mode
-  :config
-  (setq which-key-idle-delay 0.3))
-
-;;; Helpful
-(use-package helpful
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key))
 
 
 ;; Modus Theme config
