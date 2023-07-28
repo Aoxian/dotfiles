@@ -53,7 +53,7 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;;; Use Ivy for completions
+;;; Use Ivy with counsel for completions
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)
@@ -69,6 +69,16 @@
 	 ("C-d" . ivy-reverse-i-search-kill))
   :config
   (ivy-mode 1))
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+	 ("C-x b" . counsel-ibuffer)
+	 ("C-x C-f" . counsel-find-file)
+	 :map minibuffer-local-map
+	 ("C-r" . 'counsel-minibuffer-history)))
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
 ;;; Doom Modeline
 (use-package doom-modeline
   :ensure t
