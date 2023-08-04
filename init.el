@@ -148,6 +148,20 @@
 (aoxian/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
 
+;;; Projectile
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Code")
+    (setq projectile-project-search-path '("~/Code")))
+  (setq projectiel-switch-project-action #'projectile-dired))
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
 ;;; Doom Modeline & Themes
 
 ;;;; NOTE: the first time you load your configuration on a new machine, you'll
