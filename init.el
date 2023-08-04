@@ -162,6 +162,12 @@
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
 
+;;; Magit
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+(use-package forge)
+
 ;;; Doom Modeline & Themes
 
 ;;;; NOTE: the first time you load your configuration on a new machine, you'll
