@@ -28,6 +28,7 @@ tags
 
 ## VSCode
 .ionide/
+.vscode/
 
 ## NPM
 /node_modules/
@@ -39,6 +40,6 @@ tags
 ## ignore todo file
 TODO.md
 
-## Obsidian
-.obsidian/
+## gradle
+.gradle/
 

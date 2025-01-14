@@ -1,3 +1,6 @@
+# zsh completions
+[[ -d /opt/brew/share/zsh/site-functions ]] && fpath+=(/opt/brew/share/zsh/site-functions)
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -23,14 +26,13 @@ ZSH_THEME="bira"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -45,6 +47,9 @@ ZSH_THEME="bira"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -74,6 +79,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+## use fzf for search in zsh
+source <(fzf --zsh)
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -98,9 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# shell
-alias vi='nvim'
-alias vim='nvim'
+## shell
+alias vi='vim'
 alias ll='ls -lGa'
 
 # jsc (mac only)
@@ -112,6 +119,23 @@ alias ga='git add .'
 alias gc='git commit -v'
 alias gs='clear && git status'
 
+## Java
+### installed Java versions
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
+export JAVA_21_HOME=$(/usr/libexec/java_home -v21)
+
+### version switching aliases
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java17='export JAVA_HOME=$JAVA_17_HOME'
+alias java21='export JAVA_HOME=$JAVA_21_HOME'
+
+### default Java version 11
+export JAVA_HOME=$JAVA_11_HOME
+
+### python
+alias python='python3'
+
 # elixir
 alias emt='clear && mix test'
 alias eet='cd assets/elm && elm-test && cd ../..'
@@ -120,48 +144,12 @@ alias eet='cd assets/elm && elm-test && cd ../..'
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export DISABLE_SPRING=true
 export PATH="/usr/local/opt/curl/bin:$PATH"
-
-# Groupon
-alias prod='ssh -t accounting@accounting-utility1-ro.snc1 screen -xR c_igagorik'
-alias prod_bb='ssh -t jboss@accounting-worker1.snc1 screen -xR c_igagorik'
-alias prod_rw='ssh -t accounting@accounting-utility12.snc1 screen -xR c_igagorik'
-alias staging='ssh -t accounting@accounting-utility1-staging.snc1 screen -xR c_igagorik'
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-
-# ruby
-eval "$(rbenv init -)"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# added by ghcup
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+## homebrew
+export PATH="/opt/brew/sbin:$PATH"
+export PATH="/opt/brew/bin:$PATH"
 
-# Added by NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# GVM
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# Postgres.app
-export PATH="/Applications/Postgres.app/Contents/Versions/13/bin/:$PATH"
-
-# MySql ?
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-
-# Rust
-export PATH="$HOME/.cargo/bin:/opt/homebrew/bin:$HOME/.sdkman/candidates/maven/current/bin:$HOME/.sdkman/candidates/leiningen/current/bin:$HOME/.sdkman/candidates/java/current/bin:$HOME/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-
-# asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
-
-## asdf > homebrew
-alias brew='env PATH="${PATH//.asdf/shims:/}" brew'
-
-# kubernetes
-# this solves an issue where Docker writes its version of kubernetes to the
-# $PATH and causes issues
-export PATH="/usr/local/Cellar/kubernetes-cli/1.26.0/bin:$PATH"
+## rust
+export PATH="$HOME/.cargo/bin:$PATH"
 

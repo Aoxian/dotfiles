@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 execute pathogen#infect()
-syntax on
+" syntax on
 filetype plugin indent on
 
 " Use Ctrl + [h,j,k,l] to move window focus
