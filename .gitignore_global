@@ -30,6 +30,12 @@ tags
 .ionide/
 .vscode/
 
+## Eclipse / jdtls
+.classpath
+.project
+.factorypath
+.settings/
+
 ## NPM
 /node_modules/
 
@@ -43,3 +49,5 @@ TODO.md
 ## gradle
 .gradle/
 
+## Claude
+**/.claude/settings.local.json

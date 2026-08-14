@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 execute pathogen#infect()
-" syntax on
+syntax on
 filetype plugin indent on
 
 " Use Ctrl + [h,j,k,l] to move window focus
@@ -91,7 +91,10 @@ nnoremap <Leader>htc :GhcModTypeClear<cr>
 autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
 
 " ================================================ ale lint ==========================================
+" Suggestions appear as you type. Must be set before ALE loads.
+let g:ale_completion_enabled = 1
 let g:ale_linters = {
+\   'java': ['eclipselsp'],
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver', 'tslint'],
 \   'vue': ['eslint']
@@ -104,6 +107,11 @@ let g:ale_fixers = {
 \    'html': ['prettier']
 \}
 let g:ale_fix_on_save = 1
+
+" Java completion needs the eclipse.jdt.ls language server. On a new machine:
+"   brew install jdtls
+let g:ale_java_eclipselsp_path = '/opt/homebrew/opt/jdtls/libexec'
+let g:ale_java_eclipselsp_config_path = '/opt/homebrew/opt/jdtls/libexec/config_mac_arm'
 
 " ========================================== lightline configuration =================================
 let g:lightline = {
