@@ -1,0 +1,15 @@
+# Fonts
+
+font-family = FiraCode Nerd Font Mono
+font-size = 18
+
+# Colors
+
+theme = light:Catppuccin Latte,dark:Catppuccin Frappe
+
+# Cursor
+
+cursor-style = block
+
+# Shell integration otherwise switches the cursor to a bar at the prompt.
+shell-integration-features = no-cursor
