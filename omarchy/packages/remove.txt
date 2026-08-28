@@ -1,0 +1,8 @@
+# Packages from Omarchy's default base install (omarchy-base.packages) to be
+# dropped. install.sh removes these with `omarchy pkg drop` after
+# installing core.txt.
+# Delete a line to stop removing (i.e. let it install/stay again).
+
+# chromium - unused; default browser is brave-browser.desktop, which
+# omarchy-launch-webapp uses directly for webapp launches.
+chromium

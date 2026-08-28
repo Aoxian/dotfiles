@@ -19,6 +19,10 @@ else
   echo "==> Skipping packages/review.txt (set INSTALL_REVIEW=yes to include it)"
 fi
 
+echo "==> Removing packages dropped from the Omarchy defaults"
+mapfile -t remove < <(grep -v '^#\|^$' packages/remove.txt)
+((${#remove[@]})) && omarchy pkg drop "${remove[@]}"
+
 echo "==> Setting system font"
 omarchy font set "FiraCode Nerd Font Mono"
 

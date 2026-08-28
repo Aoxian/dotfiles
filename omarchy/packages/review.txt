@@ -2,8 +2,7 @@
 # (see INSTALL_REVIEW in install.sh). Move a line to core.txt once you're sure,
 # or delete it here if you don't want it.
 
-# vim - installed but unused: EDITOR is unset and nvim is still the active
-# editor. The real nvim/LazyVim config is currently sitting disabled at
-# ~/.config/nvim.disabled-lazyvim-20260826-232848 - rename it back to
-# ~/.config/nvim if you want that restored, independent of this package.
+# vim - unused; EDITOR is unset, nvim is the active editor.
+# Disabled LazyVim config backup: ~/.config/nvim.disabled-lazyvim-20260826-232848
+# (rename to ~/.config/nvim to restore, independent of this package)
 vim
