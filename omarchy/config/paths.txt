@@ -1,0 +1,5 @@
+# Config paths tracked in this folder, relative to both config/ here and
+# ~/.config on the machine. Single list used by both install.sh and pull.sh.
+hypr/input.lua
+ghostty/config
+omarchy/defaults/agent

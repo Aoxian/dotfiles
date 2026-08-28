@@ -1,0 +1,8 @@
+# Packages installed on top of the Omarchy base set.
+# One per line. Delete a line to stop installing it on future machines.
+1password
+1password-cli
+brave-bin
+ghostty
+nordvpn-bin
+ttf-firacode-nerd

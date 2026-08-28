@@ -1,0 +1,13 @@
+# Dynamic theme colors
+config-file = ?"~/.local/state/omarchy/current/theme/ghostty.conf"
+
+# Fonts
+
+font-family = "FiraCode Nerd Font Mono"
+
+# Cursor
+
+cursor-style = block
+
+# Shell integration otherwise switches the cursor to a bar at the prompt.
+shell-integration-features = no-cursor
