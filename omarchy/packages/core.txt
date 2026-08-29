@@ -5,4 +5,5 @@
 brave-bin
 ghostty
 nordvpn-bin
+signal-desktop
 ttf-firacode-nerd
