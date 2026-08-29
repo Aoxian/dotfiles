@@ -23,6 +23,22 @@ echo "==> Removing packages dropped from the Omarchy defaults"
 mapfile -t remove < <(grep -v '^#\|^$' packages/remove.txt)
 ((${#remove[@]})) && omarchy pkg drop "${remove[@]}"
 
+echo "==> Removing default webapps"
+while IFS= read -r name; do
+  omarchy-webapp-remove "$name"
+done < <(grep -v '^#\|^$' webapps/remove.txt)
+
+echo "==> Installing custom webapps"
+while IFS='|' read -r name url; do
+  omarchy-webapp-install "$name" "$url" ""
+done < <(grep -v '^#\|^$' webapps/add.txt)
+
+mailto_default=$(grep -v '^#\|^$' webapps/mailto-default.txt || true)
+if [[ -n $mailto_default ]]; then
+  echo "==> Setting default mailto: handler to $mailto_default"
+  xdg-mime default "$mailto_default" x-scheme-handler/mailto
+fi
+
 echo "==> Setting system font"
 omarchy font set "FiraCode Nerd Font Mono"
 

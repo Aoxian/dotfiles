@@ -1,0 +1,10 @@
+# Default Omarchy webapp launchers removed on this machine.
+# install.sh removes these with `omarchy-webapp-remove` before installing
+# webapps/add.txt. Delete a line to stop removing it.
+HEY
+Basecamp
+Google Contacts
+Google Maps
+Google Messages
+Google Photos
+X

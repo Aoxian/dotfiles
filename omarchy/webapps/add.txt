@@ -1,0 +1,4 @@
+# Custom webapp launchers added on this machine, one per line: Name|URL
+# install.sh installs these with `omarchy-webapp-install "Name" "URL" ""`,
+# which auto-fetches the site icon.
+Proton Mail|https://mail.proton.me

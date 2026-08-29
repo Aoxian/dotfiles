@@ -1,0 +1,3 @@
+# Desktop file set as the default mailto: handler (via `xdg-mime default`).
+# Must match a Name in add.txt plus ".desktop". Leave empty to skip.
+Proton Mail.desktop
