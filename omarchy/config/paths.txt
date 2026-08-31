@@ -4,3 +4,7 @@ hypr/input.lua
 hypr/bindings.lua
 ghostty/config
 omarchy/defaults/agent
+mimeapps.list
+xdg-terminals.list
+autostart/proton-vpn-app.desktop
+Proton/VPN/app-config.json

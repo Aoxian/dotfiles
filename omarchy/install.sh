@@ -33,12 +33,6 @@ while IFS='|' read -r name url; do
   omarchy-webapp-install "$name" "$url" ""
 done < <(grep -v '^#\|^$' webapps/add.txt)
 
-mailto_default=$(grep -v '^#\|^$' webapps/mailto-default.txt || true)
-if [[ -n $mailto_default ]]; then
-  echo "==> Setting default mailto: handler to $mailto_default"
-  xdg-mime default "$mailto_default" x-scheme-handler/mailto
-fi
-
 echo "==> Setting system font"
 omarchy font set "FiraCode Nerd Font Mono"
 

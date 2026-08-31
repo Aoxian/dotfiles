@@ -34,6 +34,5 @@ repo and commit.
 - `packages/remove.txt` - Omarchy default packages dropped on this machine
 - `webapps/remove.txt` - default Omarchy webapp launchers removed
 - `webapps/add.txt` - custom webapp launchers added (`Name|URL`)
-- `webapps/mailto-default.txt` - desktop file set as the default mailto: handler
 - `config/paths.txt` - the list of tracked config paths, used by both scripts
 - `config/` - the tracked files themselves, mirroring their `~/.config` path
