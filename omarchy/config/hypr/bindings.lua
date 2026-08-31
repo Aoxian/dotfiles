@@ -23,11 +23,23 @@
 -- Disable a default binding without replacing it.
 -- hl.unbind("SUPER + SHIFT + B")
 
+-- Calendar: HEY -> Proton Calendar
+hl.unbind("SUPER + SHIFT + C")
+o.bind("SUPER + SHIFT + C", "Calendar", { webapp = "https://calendar.proton.me" })
+
 -- Mail: HEY -> Proton Mail
 hl.unbind("SUPER + SHIFT + E")
 o.bind("SUPER + SHIFT + E", "Email", { webapp = "https://mail.proton.me" })
 hl.unbind("SUPER + SHIFT + ALT + E")
 o.bind("SUPER + SHIFT + ALT + E", "New email", { webapp = "https://mail.proton.me/u/0/compose" })
+
+-- Google apps: removed, unbind their defaults
+hl.unbind("SUPER + SHIFT + CTRL + G")
+hl.unbind("SUPER + SHIFT + P")
+hl.unbind("SUPER + SHIFT + S")
+
+-- Screenshot: for keyboards without a PRINT key.
+o.bind("SUPER + SHIFT + S", "Screenshot", "omarchy-capture-screenshot")
 
 -- X: use a browser tab instead of a dedicated webapp window
 hl.unbind("SUPER + SHIFT + X")
