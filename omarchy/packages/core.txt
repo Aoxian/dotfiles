@@ -4,6 +4,7 @@
 1password-cli
 brave-bin
 ghostty
-nordvpn-bin
+proton-vpn-cli
+proton-vpn-gtk-app
 signal-desktop
 ttf-firacode-nerd
